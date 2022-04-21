@@ -25,3 +25,5 @@
 - (v1)　Github でインターネットに公開したので、スマホでも動作確認できました。https://yoshi-fujita.github.io/dev23_js01_kadai/
 - (v２)　https://yoshi-fujita.github.io/dev23_js01_kadai_v2/
 - (v3) https://yoshi-fujita.github.io/dev23_js01_kadai_v4/
+
+![qrcode_202204212134](https://user-images.githubusercontent.com/32793942/164459292-06c72da6-c49f-42d8-b709-154b44c4218c.png)
