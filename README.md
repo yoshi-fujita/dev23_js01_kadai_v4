@@ -21,9 +21,9 @@
 - (v4) ローカルストレージに、履歴をもっとたくさん残したかったが、画像サイズを縮小せずに溜めていたら、１０個でいっぱいになってしまった。
 
 ## ④ その他（感想、シェアしたいことなんでも）
-- (v1)　ディレイ表示は、こちらの記事を参考にしました。（一番最後の「async/awaitでsleep機能を作る」）https://www.sejuku.net/blog/24629
-- (v1)　Github でインターネットに公開したので、スマホでも動作確認できました。https://yoshi-fujita.github.io/dev23_js01_kadai/
-- (v２)　https://yoshi-fujita.github.io/dev23_js01_kadai_v2/
+- (v1) ディレイ表示は、こちらの記事を参考にしました。（一番最後の「async/awaitでsleep機能を作る」）https://www.sejuku.net/blog/24629
+- (v1) Github でインターネットに公開したので、スマホでも動作確認できました。https://yoshi-fujita.github.io/dev23_js01_kadai/
+- (v2) https://yoshi-fujita.github.io/dev23_js01_kadai_v2/
 - (v3) https://yoshi-fujita.github.io/dev23_js01_kadai_v4/
 
 ![qrcode_202204212134](https://user-images.githubusercontent.com/32793942/164459292-06c72da6-c49f-42d8-b709-154b44c4218c.png)
