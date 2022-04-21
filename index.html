@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="G's アカデミー 課題 ジャンケンゲーム">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="image/janken_choki.png">
+    <title>じゃんけんゲーム v2</title>
+    
+    
+  </head>
+  <body>
+    <div class="wrap">
+
+      <!-- title area -->
+      <div id="image" class="text-center">
+        <img src="image/janken_boys.png" alt="子供２人がじゃんけんをしている">
+      </div>
+
+      <!-- comment area -->
+      <div id="comment">
+        <h1>じゃんけんしようぜ!!</h1>
+        <h2></h2>
+      </div>
+
+      <div id="battle_field">
+        <!-- machine area -->
+        <div id="machine">
+          <img src="image/janken_gu.png" alt="じゃんけんのグー">
+        </div>
+        <!-- my area -->
+        <div id="buttons">
+          <button class="gu"><img src="image/janken_gu.png" alt="じゃんけんのグー"></button>
+          <button class="choki"><img src="image/janken_choki.png" alt="じゃんけんのグー"></button>
+          <button class="pa"><img src="image/janken_pa.png" alt="じゃんけんのグー"></button>
+        </div>
+      </div>
+
+      <!-- control area -->
+      <div class="text-center">
+        <button id="control">じゃんけん</button>
+      </div>
+
+      <!-- video and history area -->
+
+      <div>
+        <video id="video" width="400" height="300" playsinline muted autoplay style="transform: scaleX(-1);"></video>
+        <canvas id="canvas" width="400" height="300"></canvas>
+      </div>
+
+      <table id="list">
+      </table>
+
+      <audio id="jankenpon" preload="auto">
+         <source src="audio/じゃんけんぽん.wav" type="audio/wav">
+      </audio>
+      <audio id="aikodesho" preload="auto">
+        <source src="audio/あいこでしょ.wav" type="audio/wav">
+      </audio>
+      <audio id="yatta" preload="auto">
+        <source src="audio/やったー.wav" type="audio/wav">
+      </audio>
+      <audio id="maketa" preload="auto">
+        <source src="audio/あなたの勝ち.wav" type="audio/wav">
+      </audio>
+      <audio id="mouikkai" preload="auto">
+        <source src="audio/もう１回やる？.wav" type="audio/wav">
+      </audio>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="js/janken.js"></script>
+    </div>
+   
+  </body>
+</html>
