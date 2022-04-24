@@ -27,12 +27,14 @@ function decide_machine_hand(){
     let next_machine_hand;
     let max_val;
     if(aiko === 0){
-        max_val = Math.max.apply({}, janken_count);
-        next_machine_hand = (janken_count.indexOf(max_val)+2)%3;
+        max_val = Math.max.apply(null, janken_count);
+        next_machine_hand = ( janken_count.indexOf(max_val) + 2 ) % 3;
+        console.log("janken_count.indexOf(max_val)=", janken_count.indexOf(max_val));
         console.log(janken_count, "max=", janken_count.indexOf(Math.max.apply(null,janken_count)));
     } else{
-        max_val = Math.max.apply(null,aiko_count[machine_hand]);
-        next_machine_hand = (aiko_count[machine_hand].indexOf(max_val)+2)%3;
+        max_val = Math.max.apply(null, aiko_count[machine_hand]);
+        next_machine_hand = ( aiko_count[machine_hand].indexOf(max_val) + 2 ) % 3;
+        console.log("aiko_count[machine_hand].indexOf(max_val)=", aiko_count[machine_hand].indexOf(max_val));
         console.log(aiko_count, "machine hand=", machine_hand, "aiko max=", aiko_count[machine_hand].indexOf(Math.max.apply(null,aiko_count[machine_hand])));
     } // カウント履歴に基づき、勝つ可能性の高い手を決める
     if(Math.floor(Math.random() * 4) > 0){
