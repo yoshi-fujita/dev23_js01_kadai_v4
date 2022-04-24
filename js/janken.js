@@ -62,15 +62,22 @@ function decide_machine_hand(){
     return next_machine_hand;
 } // 自分の手のカウント履歴を参照してマシンの次の手を決める
 
-// 過去の対戦成績や自分の手の記録の読み込み
+// 前回のスコアの読み込み
 
 let previous_my_score = Number(localStorage.getItem("my_score"));
 let previous_machine_score = Number(localStorage.getItem("machine_score"));
 if(previous_my_score && previous_machine_score){
     my_score = previous_my_score;
     machine_score = previous_machine_score;
-    janken_count = JSON.parse(localStorage.getItem("janken_count"));
-    aiko_count = JSON.parse(localStorage.getItem("aiko_count"));
+}
+
+// 過去の自分の手の記録の読み込み
+
+let previous_janken_count = JSON.parse(localStorage.getItem("janken_count"));
+let previous_aiko_count = JSON.parse(localStorage.getItem("aiko_count"));
+if(previous_janken_count && previous_aiko_count){
+    janken_count = previous_janken_count;
+    aiko_count = previous_aiko_count;
 }
 
 $("#buttons").hide(); // 最初、じゃんけんボタンは隠しておく
