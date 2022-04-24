@@ -213,4 +213,4 @@ function draw_history(){
 
 function time_to_text(now){
     return(now.getFullYear()+"年"+(now.getMonth()+1)+"月"+now.getDate()+"日<br>"+now.getHours()+"時"+now.getMinutes()+"分"+now.getSeconds()+"秒");
-} // 時刻データをテキストの念月日時分秒に変換
+} // 時刻データをテキストの年月日時分秒に変換
