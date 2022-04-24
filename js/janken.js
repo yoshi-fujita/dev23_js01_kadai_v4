@@ -25,7 +25,6 @@ function update_count(){
 
 function decide_machine_hand(){
     let next_machine_hand;
-    let max_val;
     if(aiko === 0){
         // next_machine_hand = ( janken_count.indexOf(Math.max.apply(null, janken_count)) + 2 ) % 3;
         if( janken_count[0] >= janken_count[1] && janken_count[0] >= janken_count[2]){
