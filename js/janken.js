@@ -39,8 +39,6 @@ function decide_machine_hand(){
         console.log(janken_count, "max=", janken_count.indexOf(Math.max.apply(null,janken_count)));
     } else{
         // next_machine_hand = ( aiko_count[machine_hand].indexOf(Math.max.apply(null, aiko_count[machine_hand])) + 2 ) % 3;
- 
- 
         if(aiko_count[machine_hand][0] >= aiko_count[machine_hand][1] && aiko_count[machine_hand][0] >= aiko_count[machine_hand][2]){
             next_machine_hand = ( aiko_count[machine_hand][0] + 2 ) % 3;
         } else if(aiko_count[machine_hand][0] < aiko_count[machine_hand][1] && aiko_count[machine_hand][0] >= aiko_count[machine_hand][2]){
