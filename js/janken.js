@@ -5,8 +5,7 @@ let my_hand = 0; // 最新の自分の手
 let machine_hand = 0; // 最新のマシンの手
 let aiko = 0; // 直前があいこの場合
 
-let janken_count = new Array(3);
-janken_count = [1, 1, 1]; // じゃんけんの最初の自分の手の記録（初期値 1 とする）
+let janken_count = [1, 1, 1]; // じゃんけんの最初の自分の手の記録（初期値 1 とする）
 let aiko_count = new Array(3);
 for(let y = 0; y < 3; y++) {
     aiko_count[y] = new Array(3).fill(1);
@@ -26,35 +25,10 @@ function update_count(){
 
 function decide_machine_hand(){
     let next_machine_hand;
-    let gu_c;
-    let choki_c;
-    let pa_c;
     if(aiko === 0){
-        gu_c = janken_count[0];
-        choki_c = janken_count[1];
-        pa_c = janken_count[2];
-        // next_machine_hand = ( janken_count.indexOf(Math.max.apply(null, janken_count)) + 2 ) % 3;
-        if( gu_c >= choki_c && gu_c >= pa_c ){
-            next_machine_hand = ( gu_c + 2 ) % 3;
-        } else if( gu_c < choki_c && choki_c >= pa_c ){
-            next_machine_hand = ( choki_c + 2 ) % 3;
-        } else{
-            next_machine_hand = ( pa_c + 2 ) % 3;
-        } // GitHub の公開版でエラーになる箇所の対策
-        console.log(janken_count, "max=", janken_count.indexOf(Math.max.apply(null,janken_count)));
+        next_machine_hand = ( janken_count.indexOf(Math.max.apply(null, janken_count)) + 2 ) % 3;
     } else{
-        gu_c = aiko_count[machine_hand][0];
-        choki_c = aiko_count[machine_hand][1];
-        pa_c = aiko_count[machine_hand][2];
-        // next_machine_hand = ( aiko_count[machine_hand].indexOf(Math.max.apply(null, aiko_count[machine_hand])) + 2 ) % 3;
-        if( gu_c >= choki_c && gu_c >= pa_c ){
-            next_machine_hand = ( gu_c + 2 ) % 3;
-        } else if( gu_c < choki_c && choki_c >= pa_c){
-            next_machine_hand = ( choki_c + 2 ) % 3;
-        } else{
-            next_machine_hand = ( pa_c + 2 ) % 3;
-        } // GitHub の公開版でエラーになる箇所の対策
-        console.log(aiko_count, "machine hand=", machine_hand, "aiko max=", aiko_count[machine_hand].indexOf(Math.max.apply(null,aiko_count[machine_hand])));
+        next_machine_hand = ( aiko_count[machine_hand].indexOf(Math.max.apply(null, aiko_count[machine_hand])) + 2 ) % 3;
     } // カウント履歴に基づき、勝つ可能性の高い手を決める
     if(Math.floor(Math.random() * 4) > 0){
         next_machine_hand = Math.floor(Math.random() * 3);        
