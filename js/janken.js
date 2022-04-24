@@ -238,5 +238,5 @@ function draw_history(){
 } // 最新の結果と過去の対戦記録を表示
 
 function time_to_text(now){
-    return(now.getFullYear()+"年"+(now.getMonth()+1)+"月"+now.getDay()+"日<br>"+now.getHours()+"時"+now.getMinutes()+"分"+now.getSeconds()+"秒");
+    return(now.getFullYear()+"年"+(now.getMonth()+1)+"月"+now.getDate()+"日<br>"+now.getHours()+"時"+now.getMinutes()+"分"+now.getSeconds()+"秒");
 } // 時刻データをテキストの念月日時分秒に変換
