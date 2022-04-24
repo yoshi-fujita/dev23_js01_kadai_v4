@@ -14,9 +14,11 @@ for(let y = 0; y < 3; y++) {
 function update_count(){
     if(aiko === 0){
         janken_count[my_hand]++;
+        // console.log("janken", janken_count, "my hand = " ,my_hand);
         localStorage.setItem("janken_count", JSON.stringify(janken_count));
     } else{
         aiko_count[aiko_my_hand][my_hand]++;
+        // console.log("aiko", aiko_count, "my hand = " ,my_hand, "aiko my hand", aiko_my_hand);
         localStorage.setItem("aiko_count", JSON.stringify(aiko_count));
     }
 } // 自分の手のカウント履歴を記録
@@ -93,19 +95,16 @@ $(".gu").on("click", function () {
     my_hand = 0;
     $(".choki").fadeOut(100);
     $(".pa").fadeOut(100);
-    update_count(); // じゃんけんの手の記録
 });
 $(".choki").on("click", function () {
     my_hand = 1;
     $(".pa").fadeOut(100);
     $(".gu").fadeOut(100);
-    update_count(); // じゃんけんの手の記録
 });
 $(".pa").on("click", function () {
     my_hand = 2;
     $(".gu").fadeOut(100);
     $(".choki").fadeOut(100);
-    update_count(); // じゃんけんの手の記録
 });
 
 $(".gu, .choki, .pa").on("click", function () {
@@ -122,7 +121,8 @@ $(".gu, .choki, .pa").on("click", function () {
     } else if(machine_hand === 2){
         $("#machine img").attr('src', 'image/janken_pa.png');
     }
-    
+    update_count();
+
     if(my_hand === (machine_hand+1)%3){
         delay('image/banzai_kids_boy1.png', "勝った〜!!", aiko = 0, 1000);
         audio_delay("yatta", 1000);
