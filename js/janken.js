@@ -5,7 +5,7 @@ let my_hand = 0; // 最新の自分の手
 let machine_hand = 0; // 最新のマシンの手
 let aiko = 0; // 直前があいこの場合
 
-const janken_count = [1, 1, 1]; // じゃんけんの最初の自分の手の記録（初期値 1 とする）
+let janken_count = [1, 1, 1]; // じゃんけんの最初の自分の手の記録（初期値 1 とする）
 let aiko_count = new Array(3);
 for(let y = 0; y < 3; y++) {
     aiko_count[y] = new Array(3).fill(1);
@@ -34,7 +34,6 @@ function decide_machine_hand(){
         } else{
             next_machine_hand = ( janken_count[2] + 2 ) % 3;
         } // GitHub の公開版でエラーになる箇所の対策
-        console.log("janken_count.indexOf(max_val)=", janken_count.indexOf(max_val));
         console.log(janken_count, "max=", janken_count.indexOf(Math.max.apply(null,janken_count)));
     } else{
         // next_machine_hand = ( aiko_count[machine_hand].indexOf(Math.max.apply(null, aiko_count[machine_hand])) + 2 ) % 3;
@@ -45,7 +44,6 @@ function decide_machine_hand(){
         } else{
             next_machine_hand = ( aiko_count[machine_hand][2] + 2 ) % 3;
         } // GitHub の公開版でエラーになる箇所の対策
-        console.log("aiko_count[machine_hand].indexOf(max_val)=", aiko_count[machine_hand].indexOf(max_val));
         console.log(aiko_count, "machine hand=", machine_hand, "aiko max=", aiko_count[machine_hand].indexOf(Math.max.apply(null,aiko_count[machine_hand])));
     } // カウント履歴に基づき、勝つ可能性の高い手を決める
     if(Math.floor(Math.random() * 4) > 0){
