@@ -11,6 +11,14 @@ for(let y = 0; y < 3; y++) {
     aiko_count[y] = new Array(3).fill(1);
 } // あいこになった時の手とあいこ後の自分の手の記録（初期値 1 とする）
 
+function jc() {
+    console.log("janken_count[0]=", janken_count[0]);
+    console.log("janken_count[1]=", janken_count[1]);
+    console.log("janken_count[2]=", janken_count[2]);
+}
+
+jc();
+
 function update_count(){
     if(aiko === 0){
         janken_count[my_hand]++;
@@ -25,24 +33,35 @@ function update_count(){
 
 function decide_machine_hand(){
     let next_machine_hand;
+    let gu_c;
+    let choki_c;
+    let pa_c;
     if(aiko === 0){
+        jc();
+        gu_c = janken_count[0];
+        choki_c = janken_count[1];
+        pa_c = janken_count[2];
         // next_machine_hand = ( janken_count.indexOf(Math.max.apply(null, janken_count)) + 2 ) % 3;
-        if( janken_count[0] >= janken_count[1] && janken_count[0] >= janken_count[2]){
-            next_machine_hand = ( janken_count[0] + 2 ) % 3;
-        } else if(janken_count[0] < janken_count[1] && janken_count[0] >= janken_count[2]){
-            next_machine_hand = ( janken_count[1] + 2 ) % 3;
+        if( gu_c >= choki_c && gu_c >= pa_c ){
+            next_machine_hand = ( gu_c + 2 ) % 3;
+        } else if( gu_c < choki_c && choki_c >= pa_c ){
+            next_machine_hand = ( choki_c + 2 ) % 3;
         } else{
-            next_machine_hand = ( janken_count[2] + 2 ) % 3;
+            next_machine_hand = ( pa_c + 2 ) % 3;
         } // GitHub の公開版でエラーになる箇所の対策
         console.log(janken_count, "max=", janken_count.indexOf(Math.max.apply(null,janken_count)));
     } else{
+        jc();
+        gu_c = aiko_count[machine_hand][0];
+        choki_c = aiko_count[machine_hand][1];
+        pa_c = aiko_count[machine_hand][2];
         // next_machine_hand = ( aiko_count[machine_hand].indexOf(Math.max.apply(null, aiko_count[machine_hand])) + 2 ) % 3;
-        if(aiko_count[machine_hand][0] >= aiko_count[machine_hand][1] && aiko_count[machine_hand][0] >= aiko_count[machine_hand][2]){
-            next_machine_hand = ( aiko_count[machine_hand][0] + 2 ) % 3;
-        } else if(aiko_count[machine_hand][0] < aiko_count[machine_hand][1] && aiko_count[machine_hand][0] >= aiko_count[machine_hand][2]){
-            next_machine_hand = ( aiko_count[machine_hand][1] + 2 ) % 3;
+        if( gu_c >= choki_c && gu_c >= pa_c ){
+            next_machine_hand = ( gu_c + 2 ) % 3;
+        } else if( gu_c < choki_c && choki_c >= pa_c){
+            next_machine_hand = ( choki_c + 2 ) % 3;
         } else{
-            next_machine_hand = ( aiko_count[machine_hand][2] + 2 ) % 3;
+            next_machine_hand = ( pa_c + 2 ) % 3;
         } // GitHub の公開版でエラーになる箇所の対策
         console.log(aiko_count, "machine hand=", machine_hand, "aiko max=", aiko_count[machine_hand].indexOf(Math.max.apply(null,aiko_count[machine_hand])));
     } // カウント履歴に基づき、勝つ可能性の高い手を決める
