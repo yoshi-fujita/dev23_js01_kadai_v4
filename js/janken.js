@@ -27,11 +27,10 @@ function decide_machine_hand(){
     let next_machine_hand;
     let max_val;
     if(aiko === 0){
-        max_val = Math.max.apply(null, janken_count);
-        // next_machine_hand = ( janken_count.indexOf(max_val) + 2 ) % 3;
-        if(janken_count[0] === max_val){
+        // next_machine_hand = ( janken_count.indexOf(Math.max.apply(null, janken_count)) + 2 ) % 3;
+        if( janken_count[0] >= janken_count[1] && janken_count[0] >= janken_count[2]){
             next_machine_hand = ( janken_count[0] + 2 ) % 3;
-        } else if(janken_count[1] === max_val){
+        } else if(janken_count[0] < janken_count[1] && janken_count[0] >= janken_count[2]){
             next_machine_hand = ( janken_count[1] + 2 ) % 3;
         } else{
             next_machine_hand = ( janken_count[2] + 2 ) % 3;
@@ -39,11 +38,12 @@ function decide_machine_hand(){
         console.log("janken_count.indexOf(max_val)=", janken_count.indexOf(max_val));
         console.log(janken_count, "max=", janken_count.indexOf(Math.max.apply(null,janken_count)));
     } else{
-        max_val = Math.max.apply(null, aiko_count[machine_hand]);
-        // next_machine_hand = ( aiko_count[machine_hand].indexOf(max_val) + 2 ) % 3;
-        if(aiko_count[machine_hand][0] === max_val){
+        // next_machine_hand = ( aiko_count[machine_hand].indexOf(Math.max.apply(null, aiko_count[machine_hand])) + 2 ) % 3;
+ 
+ 
+        if(aiko_count[machine_hand][0] >= aiko_count[machine_hand][1] && aiko_count[machine_hand][0] >= aiko_count[machine_hand][2]){
             next_machine_hand = ( aiko_count[machine_hand][0] + 2 ) % 3;
-        } else if(aiko_count[machine_hand][1] === max_val){
+        } else if(aiko_count[machine_hand][0] < aiko_count[machine_hand][1] && aiko_count[machine_hand][0] >= aiko_count[machine_hand][2]){
             next_machine_hand = ( aiko_count[machine_hand][1] + 2 ) % 3;
         } else{
             next_machine_hand = ( aiko_count[machine_hand][2] + 2 ) % 3;
