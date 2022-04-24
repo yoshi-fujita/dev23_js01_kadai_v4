@@ -5,7 +5,8 @@ let my_hand = 0; // 最新の自分の手
 let machine_hand = 0; // 最新のマシンの手
 let aiko = 0; // 直前があいこの場合
 
-let janken_count = [1, 1, 1]; // じゃんけんの最初の自分の手の記録（初期値 1 とする）
+let janken_count = new Array(3);
+janken_count = [1, 1, 1]; // じゃんけんの最初の自分の手の記録（初期値 1 とする）
 let aiko_count = new Array(3);
 for(let y = 0; y < 3; y++) {
     aiko_count[y] = new Array(3).fill(1);
